@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,13 +35,13 @@ public class Customer_Booking_Details extends AppCompatActivity {
         spinnerItemsAdults = new ArrayList<>();
         spinnerItemsChildren = new ArrayList<>();
 
-        source = (EditText)findViewById(R.id.et_from);
-        destination = (EditText)findViewById(R.id.et_to);
-        seatsLeft = (TextView)findViewById(R.id.tv_seats_left);
-        totalFare = (TextView)findViewById(R.id.tv_total_fare);
+        source = findViewById(R.id.et_from);
+        destination = findViewById(R.id.et_to);
+        seatsLeft = findViewById(R.id.tv_seats_left);
+        totalFare = findViewById(R.id.tv_total_fare);
 
-        Spinner spinner_adults = (Spinner) findViewById(R.id.spinner_adults);
-        Spinner spinner_children = (Spinner) findViewById(R.id.spinner_children);
+        Spinner spinner_adults =  findViewById(R.id.spinner_adults);
+        Spinner spinner_children =  findViewById(R.id.spinner_children);
 
         source.setText(busInfo.source);
         destination.setText(busInfo.destination);
@@ -57,7 +58,7 @@ public class Customer_Booking_Details extends AppCompatActivity {
 
 
          //Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerItemsAdults);
+        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerItemsAdults);
 
         // Drop down layout style - list view with radio button
         dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,7 +68,7 @@ public class Customer_Booking_Details extends AppCompatActivity {
 
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, spinnerItemsChildren);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, spinnerItemsChildren);
 
         // Drop down layout style - list view with radio button
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -82,17 +83,17 @@ public class Customer_Booking_Details extends AppCompatActivity {
         Spinner spinner = (Spinner) parent;
         if(spinner.getId() == R.id.spinner_adults)
         {
-            //do this
+            Toast.makeText(this,"Adult Selected",Toast.LENGTH_SHORT).show();
         }
         else if(spinner.getId() == R.id.spinner_children)
         {
+            Toast.makeText(this,"Child Selected",Toast.LENGTH_SHORT).show();
             //do this
         }
 
     }
 
     public void book_clicked(View view) {
-        Intent intent = new Intent(this,Seat_Selection.class);
-        startActivity(intent);
+        Toast.makeText(this,"Opening Seat Selection Layout",Toast.LENGTH_SHORT).show();
     }
 }

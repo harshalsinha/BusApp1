@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".Select_Bus" />
         <activity android:name=".Customer_Booking_Details" />
-        <activity android:name=".Seat_Selection"></activity>
     </application>
 
 </manifest>
